@@ -4,7 +4,6 @@ import { EventService } from "../services/event.service";
 export const createEvent = async (req: any, res: Response): Promise<void> => {
   try {
     const userId = req.user._id.toString();
-
     const eventService = new EventService();
     const event = await eventService.createEvent(userId, req.body);
     res.status(201).json({ message: "Event created successfully", event });

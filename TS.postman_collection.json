@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "ce3d0f1d-9d42-4b4f-9c28-2d062bc997d9",
+		"name": "TS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17901072"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"image@gmail.com\",\r\n    \"password\":\"Image@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/auth/signUp",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"auth",
+								"signUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"image@gmail.com\",\r\n    \"password\":\"Image@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/auth/logIn",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"auth",
+								"logIn"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "getEventCreatorDetails",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDA5Zjc4ODk1OTQ2NWQ5NjU4NWVlMWQiLCJpYXQiOjE2NzgzNzU4MDEsImV4cCI6MTY3ODM3OTQwMX0.KXnnA7iBpxkvAeOXcs-tY80dow78YJ81qoI6AsPjBdU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:7000/api/event/creator/6409f46217ae6696aab6805e",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"event",
+								"creator",
+								"6409f46217ae6696aab6805e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEventParticipants",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDA5Zjc4ODk1OTQ2NWQ5NjU4NWVlMWQiLCJpYXQiOjE2NzgzNzU4MDEsImV4cCI6MTY3ODM3OTQwMX0.KXnnA7iBpxkvAeOXcs-tY80dow78YJ81qoI6AsPjBdU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:7000/api/event/participants/6409f46217ae6696aab6805e",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"event",
+								"participants",
+								"6409f46217ae6696aab6805e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createEvent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDA5ZDZlMmRmNGQ3Njk4MjY2YjM0YTciLCJpYXQiOjE2NzgzNzM3MjUsImV4cCI6MTY3ODM3NzMyNX0.2YkDAHhOA3EA4EHEQSVTWE7ugbfTaN3Aoekt0APV6O8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"My awesome event\",\r\n  \"description\": \"This is a description of my awesome event\",\r\n  \"eventDate\": \"2023-03-15\",\r\n  \"eventTime\": \"13:00\",\r\n  \"place\": \"123 Main St, Anytown USA\",\r\n  \"participants\": [\"640849f4f305e46a670f16f6\", \"64084eae311e3ea87fb2ec42\"],\r\n  \"maxParticipants\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/event/create",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"event",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllEvents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDA5ZDZlMmRmNGQ3Njk4MjY2YjM0YTciLCJpYXQiOjE2NzgzNzM3MjUsImV4cCI6MTY3ODM3NzMyNX0.2YkDAHhOA3EA4EHEQSVTWE7ugbfTaN3Aoekt0APV6O8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:7000/api/event/",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"event",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "joinEvent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDA5ZDZlMmRmNGQ3Njk4MjY2YjM0YTciLCJpYXQiOjE2NzgzNzY3ODEsImV4cCI6MTY3ODM4MDM4MX0.sC7pffGmGnRjQsKmGzmuY1hIzRm1y7cgIOo87vG8y8w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:7000/api/event/join/6409f46217ae6696aab6805e",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"event",
+								"join",
+								"6409f46217ae6696aab6805e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "leaveEvent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDA5Zjc4ODk1OTQ2NWQ5NjU4NWVlMWQiLCJpYXQiOjE2NzgzNzU4MDEsImV4cCI6MTY3ODM3OTQwMX0.KXnnA7iBpxkvAeOXcs-tY80dow78YJ81qoI6AsPjBdU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:7000/api/event/leave/6409f46217ae6696aab6805e",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"event",
+								"leave",
+								"6409f46217ae6696aab6805e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDA5Zjc4ODk1OTQ2NWQ5NjU4NWVlMWQiLCJpYXQiOjE2NzgzNzU4MDEsImV4cCI6MTY3ODM3OTQwMX0.KXnnA7iBpxkvAeOXcs-tY80dow78YJ81qoI6AsPjBdU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:7000/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/api/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Anand\",\r\n    \"lastName\": \"Doe\",\r\n    \"dateOfBirth\": \"1990-01-01\",\r\n    \"gender\": \"Male\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:7000/api/users/updateUser",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"users",
+								"updateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:7000/api/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadPhoto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBhOWE4ZWJhMDM5YThjYmMwMTAyZjgiLCJpYXQiOjE2Nzg0MTY1NDEsImV4cCI6MTY3ODQyMDE0MX0.1vTu1PG7WCh_XcsN_XweNOKVqe-4xFYLqhSeGMPHbrE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePhoto",
+									"type": "file",
+									"src": "/C:/Users/bholu/Downloads/image.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:7000/api/users/uploadPhoto",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"users",
+								"uploadPhoto"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
