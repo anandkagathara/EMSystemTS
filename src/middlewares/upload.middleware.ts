@@ -1,7 +1,7 @@
 import multer from 'multer';
 const fs = require('fs')
 
-// Define storage configuration for uploaded files
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         const uploadDirectory = '../upload';
@@ -18,5 +18,4 @@ const storage = multer.diskStorage({
 });
 
 
-// Create multer instance
 export const upload = multer({ storage: storage });

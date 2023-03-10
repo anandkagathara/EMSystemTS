@@ -13,9 +13,11 @@ export const logIn = async (req: Request, res: Response): Promise<any> => {
     const token = await logInUser(email, password);
     res.status(200).json({ message: "Login successful", token });
   } catch (error: unknown) {
-    // Explicitly type the error parameter using the 'unknown' type
-    const statusCode = (error as any).statusCode || 500; // Use 'any' to access 'statusCode'
-    const message = (error as any).message || "Internal Server Error"; // Use 'any' to access 'message'
+  
+    const statusCode = (error as any).statusCode || 500; 
+    const message = (error as any).message || "Internal Server Error"; 
     return res.status(statusCode).json({ message });
   }
 };
+export { logInUser, createUser };
+

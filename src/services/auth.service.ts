@@ -12,7 +12,6 @@ export const createUser = async (
   if (existingUser) {
     throw new Error("Email already exists");
   }
-
   const hashedPassword = await bcrypt.hash(password, 10);
   const user = await User.create({
     email,
@@ -25,11 +24,11 @@ export const logInUser = async (
   email: string,
   password: string
 ): Promise<string> => {
-  const user = await getUserByEmail(email);
+  const user = await User.findOne({ email });
   if (!user) {
     throw { statusCode: 401, message: "Invalid email or password" };
   }
-  const isPasswordValid = await comparePasswords(password, user.password);
+  const isPasswordValid = await bcrypt.compare(password, user.password);
   if (!isPasswordValid) {
     throw { statusCode: 401, message: "Invalid email or password" };
   }
@@ -38,35 +37,4 @@ export const logInUser = async (
   });
 
   return token;
-};
-
-export const getUserByEmail = async (
-  email: string
-): Promise<UserDocument | null> => {
-  try {
-    const user = await User.findOne({ email });
-    return user;
-  } catch (error) {
-    throw { statusCode: 500, message: "Error getting user by email" };
-  }
-};
-
-export const comparePasswords = async (
-  plainPassword: string,
-  hashedPassword: string
-): Promise<boolean> => {
-  try {
-    const match = await bcrypt.compare(plainPassword, hashedPassword);
-    return match;
-  } catch (error) {
-    throw error;
-  }
-};
-
-export const getUserById = async (id: string): Promise<UserDocument> => {
-  const user = await User.findById(id);
-  if (!user) {
-    throw new Error("User not found");
-  }
-  return user;
 };

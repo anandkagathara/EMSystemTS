@@ -53,10 +53,7 @@ export class UserService {
         throw { statusCode: 404, message: "User not found" };
       }
       user.photoUrl = imagePath;
-
       await user.save();
-
-   
       return user;
     } catch (error: any) {
       throw { statusCode: 500, message: error.message };
